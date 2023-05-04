@@ -1,0 +1,16 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block food-block %}
+{% for menu in menus %}                
+<div class="food">
+    <img src={% get_static_prefix %}{{menu.img_path}}/> <!-- [E] 정적 경로로 변경해 주어야 합니다.-->
+    <div class="info">
+        <h3>{{menu.name}}</h3>
+        <p>{{menu.description}}</p>
+        <a href="food/{{menu.id}}">메뉴 보기</a>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock food-block %}
